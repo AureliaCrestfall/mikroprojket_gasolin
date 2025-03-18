@@ -65,19 +65,19 @@
 .card:nth-child(1)::before,
 .card:nth-child(1)::after {
     /*Background color gradient of the second card*/
-    background: linear-gradient(45deg, #2c3e50, #4ca1af);
+    background: linear-gradient(45deg, #333333, #303030);
 }
 
 .card:nth-child(2)::before,
 .card:nth-child(2)::after {
     /*Background color gradient of the third card*/
-    background: linear-gradient(325deg, #2c3e50, #4ca1af);
+    background: linear-gradient(325deg, #333333, #303030);
 }
 
 .card:nth-child(3)::before,
 .card:nth-child(3)::after {
     /*Background color gradient of the third card*/
-    background: linear-gradient(45deg, #2c3e50, #4ca1af);
+    background: linear-gradient(45deg, #333333, #303030);
 }
 
 .card__bg {
