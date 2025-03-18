@@ -25,3 +25,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+img#gasolin_logo {
+    color: rgb(33, 37, 41);
+    font-family: Arial, sans-serif;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    box-sizing: border-box;
+    left: 0%;
+    width: 40%;
+    height: 40%;
+}
