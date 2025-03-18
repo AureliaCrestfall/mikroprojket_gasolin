@@ -2,34 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Ragnarock</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link href="~/css/navbar.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/mikroprojket_gasolin.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Ragnarock</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <nav class="navbar-container">
+            <!-- Hamburger Icon and Logo -->
+            <div class="header-top">
+                <div class="hamburger" id="hamburger">
+                    ☰
                 </div>
+                <img src="/img/logo.png" alt="Ragnarock Logo" class="navbar-logo">
             </div>
+            <!-- Sliding Navbar -->
+            <div class="vertical-navbar" id="navbar">
+                <ul>
+                    <li>Forside</li>
+                    <li class="expandable" id="bandmedlemmer">
+                        Bandmedlemmer <span class="arrow">▶</span>
+                        <ul class="sub-navbar">
+                            <li>Medlem 1</li>
+                            <li>Medlem 2</li>
+                            <li>Medlem 3</li>
+                            <li>Medlem 4</li>
+                            <li>Medlem 5</li>
+                        </ul>
+                    </li>
+                    <li>Bandets Historie</li>
+                    <li>Memorabilia</li>
+                </ul>
+            </div>
+            <div class="overlay" id="overlay"></div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
