@@ -6,8 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\img\Gasolin_band_logo.webp" />
-  </ItemGroup>
-
 </Project>
