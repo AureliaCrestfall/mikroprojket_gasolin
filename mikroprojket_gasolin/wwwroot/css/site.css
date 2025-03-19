@@ -12,11 +12,29 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+h1#titleText.display-4 {
+    margin-top: 10px;
+}
+
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
   margin-bottom: 60px;
+}
+
+img#gasolin_logo {
+    color: rgb(33, 37, 41);
+    font-family: Arial, sans-serif;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    box-sizing: border-box;
+    left: 0%;
+    width: 40%;
+    height: 40%;
 }

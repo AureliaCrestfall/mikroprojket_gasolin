@@ -1,37 +1,29 @@
-﻿const hamburger = document.getElementById('hamburger');
-const navbar = document.getElementById('navbar');
-const overlay = document.getElementById('overlay');
-const bandmedlemmer = document.getElementById('bandmedlemmer');
+﻿const toggleButton = document.getElementById('toggle-btn')
+const sideBar = document.getElementById('sideBar')
 
-// Function to open the navbar
-function openNavbar() {
-    navbar.style.left = '0px';
-    overlay.style.display = 'block';
+function toggleSidebar() {
+    sideBar.classList.toggle('close')
+    toggleButton.classList.toggle('rotate')
+
+    // This ensures that the sub menu is closed when the navbar is closed.
+    // This is done by checking if the ul with the classname "submenu" has
+    // the class "show" in the classlist and if it does, the class "show" is removed.
+    Array.from(sideBar.getElementsByClassName('submenu')).forEach(ul => {
+        if (ul.classList.contains('show')) {
+            ul.classList.remove('show')
+            ul.previousElementSibling.classList.remove('rotate')
+        }
+    })
 }
+    //Toggles the submenu (musikerne) when the user clicks on the button
+    //Rotates the svg arrow 180 degrees on same interaction
+function toggleSubMenu(button) {
+    button.nextElementSibling.classList.toggle('show')
+    button.classList.toggle('rotate')
 
-// Function to close the navbar
-function closeNavbar() {
-    navbar.style.left = '-250px';
-    overlay.style.display = 'none';
-}
-
-// Function to toggle the sub-navbar
-function toggleSubNavbar(event) {
-    event.stopPropagation(); // Prevent click event from propagating to parent elements
-    bandmedlemmer.classList.toggle('open');
-}
-
-// Open/Close navbar on hamburger click
-hamburger.addEventListener('click', () => {
-    if (navbar.style.left === '0px') {
-        closeNavbar();
-    } else {
-        openNavbar();
+    // This ensures that the navbar is openeed if the user clicks on a sub menu when the navbar is closed
+    if (sideBar.classList.contains('close')) {
+        sideBar.classList.remove('close')
+        toggleButton.classList.remove('rotate')
     }
-});
-
-// Close navbar when clicking outside (on the overlay)
-overlay.addEventListener('click', closeNavbar);
-
-// Toggle sub-navbar when clicking "Bandmedlemmer"
-bandmedlemmer.addEventListener('click', toggleSubNavbar);
+}
