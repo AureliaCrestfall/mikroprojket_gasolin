@@ -1,100 +1,169 @@
-﻿/* General Styles */
-body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Creates variables for colors used throughout the stylesheet*/
+:root {
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #e6e6ef;
+    --accent-clr: #5e63ff;
+    --secondary-text-clr: #b0b3c1;
+}
+
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-header {
-    position: relative;
+html {
+    scroll-behavior: smooth;
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5rem;
 }
 
-.header-top {
-    background: #333;
-    color: white;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+body {
+    min-height: 100vh;
+    max-height: 100dvh;
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    display: grid;
+    grid-template-columns: auto 1fr;
 }
 
-.hamburger {
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 10px;
-    color: white; /* Ensure visibility on dark backgrounds */
-}
-
-.navbar-brand {
-    font-size: 20px;
-    font-weight: bold;
-    color: #007bff; /* Blue color for Ragnarock */
-    text-decoration: none;
-}
-
-/* Sliding Navbar */
-.vertical-navbar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
+#sideBar {
+    box-sizing: border-box;
     height: 100vh;
-    background: #444;
-    color: white;
-    overflow-y: auto;
-    transition: left 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    width: 250px;
+    padding: 5px 1em;
+    background-color: var(--base-clr);
+    border-right: 1px solid var(--line-clr);
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden; /*This ensures the navbar does not overflow when the screen is resized*/
+    white-space: nowrap; /*This ensures the text does not wrap - the property for this used to be "text-wrap" but aparently has changed to "white-space"*/
+}
+#sideBar.close{
+    padding: 5px;
+    width: 60px;
 }
 
-    .vertical-navbar ul {
+    #sideBar ul {
         list-style: none;
         padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
     }
 
-        .vertical-navbar ul li {
-            padding: 15px;
-            cursor: pointer;
-            border-bottom: 1px solid #555;
+    #sideBar > ul > li:first-child {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 16px;
+    }
+
+        #sideBar > ul > li:first-child .logo {
+            font-weight: 600;
+        }
+    /*coloring the active page button text and icon(svg) in the navbar. This ensures the user always knows which page they are on*/
+    #sideBar ul li.active a {
+        color: var(--accent-clr);
+    }
+
+        #sideBar ul li.active a svg {
+            fill: var(--accent-clr);
         }
 
-            .vertical-navbar ul li:hover {
-                background: #555;
-            }
-
-/* Expandable Section */
-.expandable .arrow {
-    font-size: 12px;
-    margin-left: 10px;
-    transition: transform 0.2s ease;
-}
-
-.sub-navbar {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-left: 15px; /* Indentation for sub-navbar */
-}
-
-.expandable.open .arrow {
-    transform: rotate(90deg); /* Rotate arrow when expanded */
-}
-
-.expandable.open .sub-navbar {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Overlay for Outside Click */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
+    /*Styling the links in the navbar*/
+    #sideBar a, #sideBar .dropdown-btn, #sideBar .logo {
+        border-radius: .5em;
+        padding: .85em;
+        text-decoration: none;
+        color: var(--text-clr);
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+/*Styling the dropdown buttons*/
+.dropdown-btn {
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+/*Styling all SVG*/
+#sideBar svg {
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+/*Styling the spans*/
+#sideBar a span, #sideBar .dropdown-btn span {
+    flex-grow: 1;
+    /*flex-grow 1 makes sure the span takes up the remaing space in the container*/
+}
+/*Styling the dropdown content when hovering*/
+#sideBar a:hover, #sideBar .dropdown-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+#sideBar .submenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+}
+
+    #sideBar .submenu > div {
+        overflow: hidden;
+    }
+
+    #sideBar .submenu.show {
+        grid-template-rows: 1fr;
+    }
+
+.rotate svg:last-child {
+    transform: rotate(180deg);
+}
+
+.dropdown-btn svg {
+    transition: 300ms ease;
+}
+
+/*Indentation of the anchors (elements) in the sub-navbar (Bandmedlemmer)*/
+#sideBar .submenu a {
+    padding-left: 4em;
+}
+
+/*Styling the toggle navbar button*/
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
+}
+
+#toggle-btn svg {
+    transition: transform 150ms;
+}
+
+#toggle-btn:hover {
+    background-color: var(--hover-clr);
+}
+
+
+    #toggle-btn:hover {
+        background-color: var(--hover-clr);
+    }
+
+main {
+    padding: min(30px, 7%);
+}
+
+main p {
+    color: var(--secondary-text-clr);
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
