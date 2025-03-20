@@ -44,3 +44,18 @@
 <p style="font-size: 24px;">
     I 1990'erne og 2000'erne fortsatte han sin karriere og spillede med flere bands og i forskellige musikalske sammenhænge. Han opretholdt sin status som en anerkendt og respekteret trommeslager på den danske musikscene.
 </p>
+<h1>Albums Søren Berlev spillede på efter Gasolin'</h1>
+<div class="d-flex flex-wrap">
+    @for (int i = 0; i < Model.Albums2.Length; i++)
+    {
+        <div class="card" style="width: 16rem;">
+            <img src="/Pictures/@Model.Albums2[i].ImagePath" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Albums2[i].Name</h5>
+                <p class="card-text">@Model.Albums2[i].Year</p>
+
+
+            </div>
+        </div>
+    }
+</div>
