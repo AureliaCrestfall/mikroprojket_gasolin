@@ -1,5 +1,5 @@
 ﻿@page
-@model mikroprojket_gasolin.Pages.KimLarsenModel
+@model KimLarsenModel
 @{
     ViewData["Title"] = "Home page";
 }
@@ -60,6 +60,23 @@
     <p class="image-text4">Gasolin' 4 (1978)</p>
 </div>
 <p style="font-size: 24px;"> Gasolin' betragtes stadig som et af de bedste danske rockbands, og deres indflydelse på den danske musikscene kan ikke undervurderes. Kim Larsens tid i bandet var med til at forme hans karriere og hans position som en af Danmarks mest anerkendte musikere.</p>
+
+<h1>Kim Larsen's albums med Gasolin'</h1>
+<div class="d-flex flex-wrap">
+    @for (int i = 0; i < Model.Albums.Length; i++)
+    {
+        <div class="card" style="width: 16rem;">
+            <img src="/Pictures/@Model.Albums[i].ImagePath" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Albums[i].Name</h5>
+                <p class="card-text">@Model.Albums[i].Year</p>
+
+
+            </div>
+        </div>
+    }
+</div>
+
 <h1>Solo Karrier</h1>
 <p style="font-size: 24px;">
     Efter Gasolin's opløsning i 1978 fortsatte Kim Larsen sin musikkarriere som soloartist og blev en af Danmarks mest populære og anerkendte musikere. Han udgav en lang række albums og skabte en omfattende solokarriere, der spænder over flere årtier.
