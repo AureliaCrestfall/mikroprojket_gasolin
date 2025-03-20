@@ -1,4 +1,22 @@
 ﻿@page
 @model mikroprojket_gasolin.Pages.bandmedlemmerModel
 @{
+    ViewData["Title"] = "Bandmedlemmer";
 }
+<div class="d-flex flex-wrap">
+    @for (int i = 0; i < Model.Members.Length; i++)
+    {
+		// Card for each band member - "id="card-@i" is used to identify each card"
+        <div class="card" id="card-@i" style="width: 16rem;">
+            <img src="/Pictures/@Model.Members[i].ImagePath" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Members[i].Name</h5>
+                <p class="card-text">@Model.Members[i].Text</p>
+            </div>
+
+            <div class="card__btn-body">
+                <a href="@Model.Members[i].LinkPath" class="card__btn">READ MORE</a>
+            </div>
+        </div>
+    }
+</div>
