@@ -1,0 +1,22 @@
+﻿body {
+
+}
+.image-container {
+    display: flex; /* Flexbox to align items side by side */
+    justify-content: space-between; /* Optional, adds space between images */
+    gap: 20px; /* Adds a small gap between the images */
+}
+
+.image-item {
+    flex: 1; /* Ensures each image-item takes equal space */
+    text-align: center; /* Centers the text below the image */
+}
+
+    .image-item img {
+        max-width: 100%; /* Ensures the image doesn't overflow the container */
+        height: auto; /* Maintains the aspect ratio of the image */
+    }
+
+.image-text {
+    margin-top: 10px; /* Adds some space between the image and the text */
+}
