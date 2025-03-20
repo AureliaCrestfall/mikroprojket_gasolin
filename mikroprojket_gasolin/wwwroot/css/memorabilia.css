@@ -1,0 +1,15 @@
+﻿
+
+
+body {
+   background-color:#212529;
+}
+#box{
+    border-style: outset;
+    border-width: 5px;
+    border-color: red;
+}
+.imgmem {
+    margin: 10px;
+    width:200px;
+}
