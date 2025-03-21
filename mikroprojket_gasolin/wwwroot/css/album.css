@@ -1,12 +1,11 @@
 ﻿body {
 }
-.card{
-    background-color: aquamarine;
-    
+.card {
+    background-color: #020122;
 }
-.card-title{
-    color: rebeccapurple;
+.card-title {
+    color: #C4D6B0;
 }
 .card-text{
-    color:red;
+    color:white;
 }

@@ -4,10 +4,10 @@
 body {
    background-color:#212529;
 }
-#box{
+#box {
     border-style: outset;
     border-width: 5px;
-    border-color: red;
+    border-color: #465362;
 }
 .imgmem {
     margin: 10px;
